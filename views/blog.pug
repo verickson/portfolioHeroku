@@ -1,0 +1,26 @@
+include includes/header.pug
+
+div
+   h2='Blog'
+   br
+   |
+   form(action="/add-blog" method="GET")
+     div
+       label= 'Title:'
+       input(type='text' name='title')
+     div
+       label= 'Message Text:'
+       textarea(name='posts')
+     div
+       button(type='submit' class='btn btn-primary') Add Post
+   br
+   |
+   div
+     //- div I would like this to auto update, please refresh page to see blog post
+     each post in blogposts
+       div
+         h3= post.title
+         p= post.posts
+         div= post.posttime
+
+include includes/footer.pug
